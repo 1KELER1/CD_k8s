@@ -1,0 +1,69 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Тесты и покрытие
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.cache
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Системные
+.DS_Store
+Thumbs.db
+
+# Логи
+*.log
+logs/
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*
+.docker-compose*
+
+# Kubernetes
+k8s/
+*.yaml
+*.yml
+
+# Terraform (AWS проект)
+terraform/
+*.tf
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# CI/CD
+.github/
+!.github/workflows/docker.yaml
+
+# Документация
+README.md
+docs/
+mkdocs.yml
+
+# Временные файлы
+*.tmp
+tmp/
