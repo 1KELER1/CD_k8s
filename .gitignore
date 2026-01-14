@@ -138,3 +138,5 @@ personal-notes/
 *.tmp
 *.temp
 .cache/
+
+plan.md
