@@ -16,7 +16,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: fastapi
-          image: ghcr.io/1keler1/fastapi-app:latest
+          image: ghcr.io/1keler1/cd_k8s:latest
           imagePullPolicy: Always
           ports:
             - name: http
