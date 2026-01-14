@@ -67,3 +67,4 @@ mkdocs.yml
 # Временные файлы
 *.tmp
 tmp/
+plan.md
