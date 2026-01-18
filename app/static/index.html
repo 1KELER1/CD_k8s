@@ -1,82 +1,80 @@
-<!DOCTYPE html>
-<html lang="ru">
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello World</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
+            .container {
+                text-align: center;
+                background: white;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            }
 
-        .container {
-            text-align: center;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
+            h1 {
+                color: #333;
+                margin: 0 0 30px 0;
+                font-size: 48px;
+            }
 
-        h1 {
-            color: #333;
-            margin: 0 0 30px 0;
-            font-size: 48px;
-        }
+            button {
+                padding: 15px 30px;
+                font-size: 18px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                background-color: #667eea;
+                color: white;
+                font-weight: bold;
+            }
 
-        button {
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background-color: #667eea;
-            color: white;
-            font-weight: bold;
-        }
+            button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            }
 
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
+            button:active {
+                transform: scale(0.98);
+            }
 
-        button:active {
-            transform: scale(0.98);
-        }
-
-        .info {
-            margin-top: 20px;
-            color: #666;
-            font-size: 14px;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1>Hello World! </h1>
-        <button onclick="changeColor()">Изменить цвет</button>
-        <div class="info">
-            <p>Нажимайте кнопку, чтобы менять цвет фона</p>
+            .info {
+                margin-top: 20px;
+                color: #666;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Hello World! </h1>
+            <button onclick="changeColor()">Изменить цвет</button>
+            <div class="info">
+                <p>Нажимайте кнопку, чтобы менять цвет фона</p>
+            </div>
         </div>
-    </div>
 
-    <script>
-        const colors = ['#667eea', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#fa709a', '#f6d365', '#fda085', '#a1c4fd', '#c2e9fb', '#89f7fe', '#66a6ff'];
-        let currentColorIndex = 0;
+        <script>
+            const colors = ['#667eea', '#f093fb', '#4facfe', '#00f2fe', '#43e97b', '#fa709a'];
+            let currentColorIndex = 0;
 
-        function changeColor() {
-            currentColorIndex = (currentColorIndex + 1) % colors.length;
-            document.body.style.background = `linear-gradient(135deg, ${colors[currentColorIndex]} 0%, ${colors[(currentColorIndex + 1) % colors.length]} 100%)`;
-        }
-    </script>
-</body>
+            function changeColor() {
+                currentColorIndex = (currentColorIndex + 1) % colors.length;
+                document.body.style.background = `linear-gradient(135deg, ${colors[currentColorIndex]} 0%, ${colors[(currentColorIndex + 1) % colors.length]} 100%)`;
+            }
+        </script>
+    </body>
+    </html>
 
-</html>
