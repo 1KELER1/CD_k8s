@@ -2,13 +2,39 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-    - main
+      - main
     paths:
-      - 'app/**'
-      - 'Dockerfile'
+      - "app/**"
+      - "Dockerfile"
+      - "requirements*.txt"
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install lint tools
+        run: pip install flake8 black isort
+
+      - name: Run flake8
+        run: flake8 . --exclude=venv,.venv
+
+      - name: Check black
+        run: black --check .
+
+      - name: Check isort
+        run: isort --check-only .
+
   build:
+    needs: lint
     permissions:
       packages: write
       contents: read
@@ -35,3 +61,5 @@ jobs:
           tags: |
             ghcr.io/${{ steps.repo.outputs.repository_low }}:${{ github.sha }}
             ghcr.io/${{ steps.repo.outputs.repository_low }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
