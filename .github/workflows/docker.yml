@@ -7,8 +7,34 @@ on:
       - 'app/**'
       - 'Dockerfile'
 
+
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install lint tools
+        run: pip install flake8 black isort
+
+      - name: Run flake8
+        run: flake8 app/
+
+      - name: Check black
+        run: black --check app/
+
+      - name: Check isort
+        run: isort --check-only app/
+
+
   build:
+    needs: lint
     permissions:
       packages: write
       contents: read
